@@ -4,7 +4,7 @@ import { logIn } from "../../API/userApi";
 import toast, { Toaster } from "react-hot-toast";
 import "./styles.css";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { jwtDecode } from "jwt-decode";
 
 const LoginScreen = () => {
@@ -41,6 +41,9 @@ const LoginScreen = () => {
 
   return (
     <div className="shadow-inner ">
+      {loading && (
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50 z-50 cursor-not-allowed "></div>
+      )}
       <Toaster />
       <div className="w-full h-screen bg-neutral-950 justify-center flex flex-col  gap-3 items-center text-white shadow0">
         <div className="w-[90%] md:w-[40%] lg:w-[35%] md:h-[60%] h-[60%] sm:w-[50%] bg-gray-950 shadow shadow-purple-700 justify-center flex items-center flex-col shadow0 rounded-md ">
@@ -85,13 +88,19 @@ const LoginScreen = () => {
                 type="submit"
                 className={`${
                   loading
-                    ? "bg-neutral-900 cursor-not-allowed animate-pulse"
-                    : "bg-black "
-                } hover:bg-neutral-800 w-[60%] text-white py-4 ml-24 rounded-md mt-6 font-bold uppercase duration-300 transition-all`}
+                    ? "bg-gray-900 cursor-not-allowed animate-pulse"
+                    : "bg-purple-950 "
+                } hover:bg-indigo-950 w-[60%] text-white py-4 ml-24 rounded-md mt-6 font-bold uppercase duration-300 transition-all`}
               >
-                {loading ? `Logging In` : "Log In"}
+                {loading ? `Logging In` : "Sign In"}
               </button>
             </div>
+            <p className="mt-5 font-semibold">
+              Don't have an account?{" "}
+              <Link to="/auth/" className="text-blue-700">
+                Sign Up
+              </Link>
+            </p>
           </form>
         </div>
       </div>

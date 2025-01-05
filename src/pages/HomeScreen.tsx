@@ -55,7 +55,7 @@ const HomeScreen = () => {
         </div>
 
         {/* Pagination Controls */}
-        <div className="mt-5 flex justify-center items-center gap-4">
+        <div className="mt-5 flex justify-center items-center gap-4 mb-10 ">
           <button
             className="bg-neutral-200 hover:bg-neutral-300 px-4 py-2 rounded-md"
             disabled={currentPage === 1}

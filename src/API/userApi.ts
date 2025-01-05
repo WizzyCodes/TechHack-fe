@@ -44,9 +44,11 @@ export const verifyAccount = async (userID: string, otp: string) => {
 
 export const readUser = async (userID: string) => {
   try {
-    return await axios.get(`${URL}/get-user/${userID}`).then((res: any) => {
-      return res.data;
-    });
+    return await axios
+      .get(`${URL}/api/user/get-user/${userID}`)
+      .then((res: any) => {
+        return res.data;
+      });
   } catch (error) {
     return error;
   }

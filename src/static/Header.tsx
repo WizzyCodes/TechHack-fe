@@ -12,6 +12,7 @@ const Header = () => {
   useEffect(() => {
     readUser(userID).then((res) => {
       if (res.status === 200) {
+        console.log(res.data);
         setUser(res.data);
       }
     });
@@ -28,7 +29,7 @@ const Header = () => {
   return (
     <div>
       <div className="flex justify-between items-center mx-5">
-        <div className="font-bold uppercase">Hi {user?.name},</div>
+        <div className="font-bold uppercase">Hi {user?.userName},</div>
         <div className="flex-1" />
         <div className="flex items-center gap-4">
           <div>₦{cost.toLocaleString()}</div>
@@ -41,7 +42,7 @@ const Header = () => {
           <button
             className="bg-black text-white px-10 py-3 rounded-md "
             onClick={() => {
-              localStorage.removeItem("userAuthLogin");
+              localStorage.removeItem("auth");
               window.location.reload();
             }}
           >

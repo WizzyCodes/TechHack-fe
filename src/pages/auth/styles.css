@@ -1,0 +1,6 @@
+.shadow0 {
+  box-shadow: 0 0 2em #646cffaa;
+  transition: box-shadow 300ms;
+  will-change: box-shadow;
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
